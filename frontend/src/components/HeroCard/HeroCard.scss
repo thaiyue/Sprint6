@@ -1,0 +1,26 @@
+.singleLetterComponent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding:2rem;
+
+}
+
+.characterImage {
+  width: 450px;
+  height: 600px;
+  background-color: purple;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  img {
+    object-fit: cover;
+    object-position: center;
+    width:300px;
+    height:250px;
+  }
+}
