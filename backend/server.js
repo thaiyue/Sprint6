@@ -51,56 +51,77 @@ app.get("/letters/:letterChar", (req, res) => {
 })
 })
 
-const characters = [
-  new Character ({apiId: 1011227, name: "Amadeus Cho"}),
-  new Character ({apiId: 1009153, name: "Angel"}),
-  new Character ({apiId: 1010801, name: "Ant-Man"}),
-  new Character ({apiId: 1009187, name: "Black Panther"}),
-  new Character ({apiId: 1009180, name: "Beta-Ray-Bill"}),
-  new Character ({apiId: 1009175, name: "Beast"}),
-  new Character ({apiId: 1009189, name: "Black Widow"}),
-  new Character ({apiId: 1009243, name: "Colussus"}),
-  new Character ({apiId: 1010338, name: "Captain Marvel"}),
-  new Character ({apiId: 1009220, name: "Captain America"}),
-  new Character ({apiId: 1009268, name: "Deadpool"}),
-  new Character ({apiId: 1009288, name: "Elektra"}),
-  new Character ({apiId: 1009297, name: "Falcon"}),
-  new Character ({apiId: 1009313, name: "Gambit"}),
-  new Character ({apiId: 1009351, name: "Hulk"}),
-  new Character ({apiId: 1009368, name: "Iron Man"}),
-  new Character ({apiId: 1009381, name: "Jubilee"}),
-  new Character ({apiId: 1011081, name: "Ka-Zar"}),
-  new Character ({apiId: 1009407, name: "Loki"}),
-  new Character ({apiId: 1017577, name: "Ms. Marvel"}),
-  new Character ({apiId: 1009466, name: "Namor"}),
-  new Character ({apiId: 1009480, name: "Odin"}),
-  new Character ({apiId: 1009504, name: "Professor X"}),
-  new Character ({apiId: 1009524, name: "Quicksilver"}),
-  new Character ({apiId: 1009546, name: "Rogue"}),
-  new Character ({apiId: 1009610, name: "Spiderman"}),
-  new Character ({apiId: 1009664, name: "Thor"}),
-  new Character ({apiId: 1009683, name: "Uatu"}),
-  new Character ({apiId: 1010350, name: "Valkrie"}),
-  new Character ({apiId: 1009718, name: "Wolverine"}),
-  new Character ({apiId: 1009722, name: "X-23"}),
-  new Character ({apiId: 1010996, name: "Yellowjacket"}),
-  new Character ({apiId: 1009742, name: "Zzzax"})
-]
+// const characters = [
+//   new Character ({apiId: 1011227, name: "Amadeus Cho"}),
+//   new Character ({apiId: 1009153, name: "Angel"}),
+//   new Character ({apiId: 1010801, name: "Ant-Man"}),
+//   new Character ({apiId: 1009187, name: "Black Panther"}),
+//   new Character ({apiId: 1009180, name: "Beta-Ray-Bill"}),
+//   new Character ({apiId: 1009175, name: "Beast"}),
+//   new Character ({apiId: 1009189, name: "Black Widow"}),
+//   new Character ({apiId: 1009243, name: "Colussus"}),
+//   new Character ({apiId: 1010338, name: "Captain Marvel"}),
+//   new Character ({apiId: 1009220, name: "Captain America"}),
+//   new Character ({apiId: 1009268, name: "Deadpool"}),
+//   new Character ({apiId: 1009288, name: "Elektra"}),
+//   new Character ({apiId: 1009297, name: "Falcon"}),
+//   new Character ({apiId: 1009313, name: "Gambit"}),
+//   new Character ({apiId: 1009351, name: "Hulk"}),
+//   new Character ({apiId: 1009368, name: "Iron Man"}),
+//   new Character ({apiId: 1009381, name: "Jubilee"}),
+//   new Character ({apiId: 1011081, name: "Ka-Zar"}),
+//   new Character ({apiId: 1009407, name: "Loki"}),
+//   new Character ({apiId: 1017577, name: "Ms. Marvel"}),
+//   new Character ({apiId: 1009466, name: "Namor"}),
+//   new Character ({apiId: 1009480, name: "Odin"}),
+//   new Character ({apiId: 1009504, name: "Professor X"}),
+//   new Character ({apiId: 1009524, name: "Quicksilver"}),
+//   new Character ({apiId: 1009546, name: "Rogue"}),
+//   new Character ({apiId: 1009610, name: "Spiderman"}),
+//   new Character ({apiId: 1009664, name: "Thor"}),
+//   new Character ({apiId: 1009683, name: "Uatu"}),
+//   new Character ({apiId: 1010350, name: "Valkrie"}),
+//   new Character ({apiId: 1009718, name: "Wolverine"}),
+//   new Character ({apiId: 1009722, name: "X-23"}),
+//   new Character ({apiId: 1010996, name: "Yellowjacket"}),
+//   new Character ({apiId: 1009742, name: "Zzzax"})
+// ]
 
 // characters.forEach(character => {
 //   character.save().then (() => {console.log("Created", character.name)})
 // })
 
-
 // const armor = new Character ({apiId: 1011298, name: "Armor"})
 // armor.save ()
-
+//
 // const letters = [
-//   new Letter ({letterChar: "A", characters: ["5bec448bfd36863141423e01", ]})
+  // new Letter ({letterChar: "A", characters: ["5bec448bfd36863141423e01", "5bed5b4f80e609415516189f", "5bed5b4f80e60941551618a0","5bed5b4f80e60941551618a1"]}),
+  // new Letter ({letterChar: "B", characters: ["5bed5b4f80e60941551618a3", "5bed5b4f80e60941551618a2", "5bed5b4f80e60941551618a4","5bed5b4f80e60941551618a5"]}),
+  // new Letter ({letterChar: "C", characters: ["5bed5b4f80e60941551618a6", "5bed5b4f80e60941551618a7", "5bed5b4f80e60941551618a8"]}),
+  // new Letter ({letterChar: "D", characters: ["5bed5b4f80e60941551618a9"]}),
+  // new Letter ({letterChar: "E", characters: ["5bed5b4f80e60941551618aa"]}),
+  // new Letter ({letterChar: "F", characters: ["5bed5b4f80e60941551618ab"]}),
+  // new Letter ({letterChar: "G", characters: ["5bed5b4f80e60941551618ac"]}),
+  // new Letter ({letterChar: "H", characters: ["5bed5b4f80e60941551618ad"]}),
+  // new Letter ({letterChar: "I", characters: ["5bed5b4f80e60941551618ae"]}),
+  // new Letter ({letterChar: "J", characters: ["5bed5b4f80e60941551618af"]}),
+  // new Letter ({letterChar: "K", characters: ["5bed5b4f80e60941551618b0"]}),
+  // new Letter ({letterChar: "L", characters: ["5bed5b4f80e60941551618b1"]}),
+  // new Letter ({letterChar: "M", characters: ["5bed5b4f80e60941551618b2"]}),
+  // new Letter ({letterChar: "N", characters: ["5bed5b4f80e60941551618b3"]}),
+  // new Letter ({letterChar: "O", characters: ["5bed5b4f80e60941551618b4"]}),
+  // new Letter ({letterChar: "P", characters: ["5bed5b4f80e60941551618b5"]}),
+  // new Letter ({letterChar: "Q", characters: ["5bed5b4f80e60941551618b6"]}),
+  // new Letter ({letterChar: "R", characters: ["5bed5b4f80e60941551618b7"]}),
+  // new Letter ({letterChar: "S", characters: ["5bed5b4f80e60941551618b8"]}),
+  // new Letter ({letterChar: "T", characters: ["5bed5b4f80e60941551618b9"]}),
+  // new Letter ({letterChar: "U", characters: ["5bed5b4f80e60941551618ba"]}),
+  // new Letter ({letterChar: "V", characters: ["5bed5b4f80e60941551618bb"]}),
+  // new Letter ({letterChar: "W", characters: ["5bed5b4f80e60941551618bc"]}),
+  // new Letter ({letterChar: "X", characters: ["5bed5b4f80e60941551618bd"]}),
+  // new Letter ({letterChar: "Y", characters: ["5bed5b4f80e60941551618be"]}),
+  // new Letter ({letterChar: "Z", characters: ["5bed5b4f80e60941551618bf"]})
 // ]
-
-
-
 
 // letters.forEach(letter => {
 //   letter.save().then(() => { console.log("Created", letter.letterChar )})
