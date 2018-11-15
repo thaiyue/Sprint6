@@ -3,23 +3,21 @@ import HeroCard from "../HeroCard"
 // const APIKEY = `9e51a696b1806dcbcd5554c3c5e838e4`
 // const query = `1009368`
 // const URL = `https://gateway.marvel.com:443/v1/public/characters/${query}?apikey=9e51a696b1806dcbcd5554c3c5e838e4`
-const characterAUrl = "http://localhost:8080/letters/A"
+const letterURL = "http://localhost:8080/letters/"
 
 class HeroList extends Component {
 
   state ={
-    characters: [],
-    letter: []
+    letters: []
   }
 
   getCharacters = () => {
-    fetch(characterAUrl)
+    fetch(letterURL)
       .then(response => response.json())
       .then(json => {
         console.log(json)
         this.setState({
-          characters: json.characters.data.results,
-          letter: json.letter.letterChar
+          letters:json
         })
       })
   }
@@ -31,15 +29,15 @@ class HeroList extends Component {
 
 
   render() {
-    console.log(this.state.characters)
-    if (this.state.characters.length > 0)  {
+    console.log(this.state.letters)
+    if (this.state.letters.length > 0)  {
     return (
       <div className="abcList">
+        {this.state.letters.map((letters,index) =>
         <div className="cardContainer">
           <HeroCard
-            characters={this.state.characters}
-            letter={this.state.letter}/>
-        </div>
+            letter={letters}/>
+          </div>)}
       </div>
 
     )

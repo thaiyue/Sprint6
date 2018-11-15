@@ -13,12 +13,11 @@ class HeroCard extends Component {
 
       <div className ="singleLetterComponent">
         <div className="characterImage">
-          <img src ={`${this.props.characters[0].thumbnail.path}.${this.props.characters[0].thumbnail.extension}`} />
+          <img src ={this.props.letter.image} />
           <Speech
-            text={`${this.props.letter} is for ${this.props.characters[0].name}`}
+            text={`${this.props.letter.letterChar} is for ${this.props.letter.name}`}
             textAsButton={true}
             rate=".95"
-            displayText={`${this.props.letter} is for ${this.props.characters[0].name}`}
           voice="Google UK English Female" />
         </div>
       </div>
