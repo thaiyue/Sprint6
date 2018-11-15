@@ -7,10 +7,14 @@
     "start": "nodemon server.js --exec babel-node"
   },
   "dependencies": {
+    "blueimp-md5": "^2.10.0",
     "body-parser": "^1.18.2",
     "cors": "^2.8.5",
+    "crypto-js": "^3.1.9-1",
     "express": "^4.16.2",
+    "md5": "^2.2.1",
     "mongoose": "^4.13.7",
+    "node-fetch": "^2.3.0",
     "nodemon": "^1.14.0"
   },
   "devDependencies": {

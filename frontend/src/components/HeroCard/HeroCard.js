@@ -4,31 +4,26 @@ import Speech from 'react-speech'
 
 class HeroCard extends Component {
 
-  constructor(props) {
-    super()
-     this.state = {
-       ...props
-      }
-  }
-
 
 
   render() {
+    console.log(this.props)
+    // const Character = ({}) => {
     return (
 
       <div className ="singleLetterComponent">
         <div className="characterImage">
           <img src ={`${this.props.characters[0].thumbnail.path}.${this.props.characters[0].thumbnail.extension}`} />
           <Speech
-            text={`I is for ${this.props.characters[0].name}`}
+            text={`${this.props.letter} is for ${this.props.characters[0].name}`}
             textAsButton={true}
             rate=".95"
-            displayText={`I is for ${this.props.characters[0].name}`}
+            displayText={`${this.props.letter} is for ${this.props.characters[0].name}`}
           voice="Google UK English Female" />
         </div>
       </div>
     )
   }
 }
-
+// }
 export default HeroCard;

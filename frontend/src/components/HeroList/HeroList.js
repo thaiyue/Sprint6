@@ -1,24 +1,26 @@
 import React, { Component } from "react";
 import HeroCard from "../HeroCard"
-const APIKEY = `9e51a696b1806dcbcd5554c3c5e838e4`
-const query = `1009368`
-const URL = `https://gateway.marvel.com:443/v1/public/characters/${query}?apikey=9e51a696b1806dcbcd5554c3c5e838e4`
-
+// const APIKEY = `9e51a696b1806dcbcd5554c3c5e838e4`
+// const query = `1009368`
+// const URL = `https://gateway.marvel.com:443/v1/public/characters/${query}?apikey=9e51a696b1806dcbcd5554c3c5e838e4`
+const characterAUrl = "http://localhost:8080/letters/A"
 
 class HeroList extends Component {
 
   state ={
-    characters: []
+    characters: [],
+    letter: []
   }
 
   getCharacters = () => {
-    fetch(URL)
+    fetch(characterAUrl)
       .then(response => response.json())
-      .then(characters => {
+      .then(json => {
+        console.log(json)
         this.setState({
-          characters: characters.data.results
+          characters: json.characters.data.results,
+          letter: json.letter.letterChar
         })
-        console.log(characters)
       })
   }
 
@@ -30,14 +32,13 @@ class HeroList extends Component {
 
   render() {
     console.log(this.state.characters)
-    if (this.state.characters.length > 0 )  {
+    if (this.state.characters.length > 0)  {
     return (
       <div className="abcList">
         <div className="cardContainer">
           <HeroCard
-            characters={this.state.characters}/>
-          <HeroCard
-            characters={this.state.characters}/>
+            characters={this.state.characters}
+            letter={this.state.letter}/>
         </div>
       </div>
 
