@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import HeroCard from "../HeroCard"
+import "./HeroList.scss"
 // const APIKEY = `9e51a696b1806dcbcd5554c3c5e838e4`
 // const query = `1009368`
 // const URL = `https://gateway.marvel.com:443/v1/public/characters/${query}?apikey=9e51a696b1806dcbcd5554c3c5e838e4`
@@ -28,20 +29,25 @@ class HeroList extends Component {
 
 
   render() {
+
+
+
+
     console.log("LENGTH: ", this.state.letters.length)
     if (this.state.letters.length > 0)  {
 
     return (
-      <div className="abcList">
-        {this.state.letters
-          .sort((a,b)=>(a.letterChar<b.letterChar) ? -1 : ((b.letterChar<a.letterChar) ? 1 : 0))
-          .map((letters,index) =>
-            <div className="cardContainer">
-              <HeroCard
-                letter={letters}/>
-            </div>)}
+      <div className="abcWrapper">
+        <div className="abcList">
+          {this.state.letters
+            .sort((a,b)=>(a.letterChar<b.letterChar) ? -1 : ((b.letterChar<a.letterChar) ? 1 : 0))
+            .map((letters,index) =>
+              <div className="cardContainer">
+                <HeroCard
+                  letter={letters}/>
+              </div>)}
+        </div>
       </div>
-
     )
   } else {
     return (

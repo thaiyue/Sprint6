@@ -8,29 +8,40 @@ class HeroCard extends Component {
   constructor(props) {
     super(props)
      this.state = {
-       ...props
+       ...props,
       }
   }
 
 
-  componentWillReceiveProps(props){
-    this.setState(
-      props
-      )
-    }
+  handleClick(e) {
+    e.preventDefault();
+    this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
+}
 
 
   render() {
+
+    const FlippyStyle = {
+      width: '450px',
+      height: '800px',
+      textAlign: 'center',
+      color: '#FFF',
+      fontFamily: 'sans-serif',
+      fontSize: '30px',
+      justifyContent: 'center'
+    }
      {
 
 
     return (
 
       <Flippy
-        flipOnHover={false}
-        flipOnClick={true}
         flipDirection="horizontal"
-      ref={(r) => this.flippy = r}>
+        flipOnClick={false}
+        isFlipped={false}
+        ref={(r) => this.flippyHorizontal = r}
+        style={FlippyStyle}>
+
 
         <FrontSide>
           <div className ="LetterFront">
@@ -42,6 +53,7 @@ class HeroCard extends Component {
                 rate=".95"
               voice="Google UK English Female" />
             </div>
+            <button type="button" onClick={() => this.flippyHorizontal.toggle()}>Toggle Me!</button>
           </div>
         </FrontSide>
 
@@ -55,6 +67,7 @@ class HeroCard extends Component {
                 rate=".95"
               voice="Google UK English Female" />
             </div>
+            <button type="button" onClick={() => this.flippyHorizontal.toggle()}>Flip Me!</button>
           </div>
         </BackSide>
       </Flippy>
