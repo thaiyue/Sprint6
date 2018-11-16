@@ -15,7 +15,6 @@ class HeroList extends Component {
     fetch(letterURL)
       .then(response => response.json())
       .then(json => {
-        console.log(json)
         this.setState({
           letters:json
         })
@@ -29,15 +28,18 @@ class HeroList extends Component {
 
 
   render() {
-    console.log(this.state.letters)
+    console.log("LENGTH: ", this.state.letters.length)
     if (this.state.letters.length > 0)  {
+
     return (
       <div className="abcList">
-        {this.state.letters.map((letters,index) =>
-        <div className="cardContainer">
-          <HeroCard
-            letter={letters}/>
-          </div>)}
+        {this.state.letters
+          .sort((a,b)=>(a.letterChar<b.letterChar) ? -1 : ((b.letterChar<a.letterChar) ? 1 : 0))
+          .map((letters,index) =>
+            <div className="cardContainer">
+              <HeroCard
+                letter={letters}/>
+            </div>)}
       </div>
 
     )
