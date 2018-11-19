@@ -20,13 +20,26 @@ mongoose.connection.once("open", () => console.log("Connected to mongodb"))
 const Letter = mongoose.model ("Letter", {
   letterChar: String,
   characters: [{type: mongoose.Schema.Types.ObjectId, ref: 'Character'}]
+  memory: [{type: mongoose.Scheme.Types.ObjectID, ref: 'Memory'}]
   })
 
 const Character = mongoose.model("Character", {
       apiId: Number,
       name: String,
-      image: String
+      image: String,
+      description: String,
+      gender: String,
+      universe: String
   })
+
+const Memory = mongoose.model("Memory", {
+  name: String,
+  image: String,
+  description: String,
+  date: String,
+  gender: String,
+  universe: String
+})
 
 const time = (new Date().getTime())
 const apiKeyPublic = "9e51a696b1806dcbcd5554c3c5e838e4"
@@ -39,7 +52,7 @@ app.get("/", (req, res) => {
 
 
 app.get("/letters/", (req, res) => {
-  Letter.find().populate("characters").then(letters => {
+  Letter.find().populate("characters").populate("memory").then(letters => {
       res.json(
         letters
       )
