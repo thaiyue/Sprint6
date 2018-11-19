@@ -60,9 +60,9 @@ class HeroCard extends Component {
         <BackSide>
           <div className ="LetterBack">
             <div className="characterImage">
-              <img src={this.state.letter.characters[0].image} />
+              <img src={this.state.letter.characters[1].image} />
               <Speech
-                text={`${this.state.letter.letterChar} is for ${this.state.letter.characters[0].name}.`}
+                text={`${this.state.letter.letterChar} is for ${this.state.letter.characters[1].name}.`}
                 textAsButton={true}
                 rate=".95"
               voice="Google UK English Female" />
