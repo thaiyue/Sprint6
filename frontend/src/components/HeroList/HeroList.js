@@ -32,8 +32,10 @@ class HeroList extends Component {
     const background = "https://coolhousestyle.info/images/marvel-wallpapers-pictures-images_FILE_lLZgdJxJrZAaF2cc-LebLAHaDt.jpg"
 
     const styleAbcWrapper={backgroundImage: `url(${background})`,
-        backgroundSize: '80%',
-        backgroundRepeat: 'repeat'}
+        backgroundSize: '15%',
+        backgroundRepeat: 'repeat',
+        display: 'flex'
+}
 
 
 

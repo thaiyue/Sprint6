@@ -1,0 +1,22 @@
+h3{
+  font-size:5px;
+  font-family: 'Roboto'
+}
+
+.heroPickerRow {
+  // display: block;
+}
+.heroImageContainer {
+  height: 50px;
+  width:50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img {
+    object-fit: cover;
+    object-position: center;
+    width:100%;
+    height:100%;
+  }
+}

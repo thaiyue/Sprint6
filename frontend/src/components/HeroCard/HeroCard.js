@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./HeroCard.scss"
 import Speech from 'react-speech'
 import Flippy, { FrontSide, BackSide } from 'react-flippy'
+import HeroPickerItem from './HeroPickerItem'
+
 
 class HeroCard extends Component {
 
@@ -9,7 +11,20 @@ class HeroCard extends Component {
     super(props)
      this.state = {
        ...props,
+       currentIndex: 0,
+       pause: false,
+       resume: false
       }
+  }
+
+  componentDidMount(){
+    this.timer = setInterval(this.pause(), 5000)
+    this.timer2 = setInterval(this.resume(), 5020)
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.timer)
+    clearInterval(this.timer2)
   }
 
 
@@ -18,95 +33,61 @@ class HeroCard extends Component {
     this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
 }
 
+pause = () => {
+  console.log("pause1", this.speech)
+  if(this.speech){
+    console.log("pause2")
+    this.speech.speechSynthesis.pause()
+  }
+}
+resume = () => {
+  if(this.speech){
+    console.log("resume")
+    this.speech.speechSynthesis.resume()
+  }
+}
+
+handleCharacterSelection = (index) => {
+  this.setState({currentIndex: index});
+  this.flippyHorizontal.toggle()
+}
+
 
   render() {
 
     const FlippyStyle = {
-      width: '450px',
+      width: '600px',
       height: '800px',
       textAlign: 'center',
       color: '#FFF',
       fontFamily: 'sans-serif',
       fontSize: '30px',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      margin: '20px'
     }
 
-    // let timer = null;
-    // let reading = false;
-    //
-    // const readText = function(text) {
-    //
-    //     if (!reading) {
-    //         speechSynthesis.cancel();
-    //         if (timer) {
-    //             clearInterval(timer);
-    //         }
-    //         let msg = new SpeechSynthesisUtterance();
-    //         let voices = window.speechSynthesis.getVoices();
-    //         msg.voice = voices[82];
-    //         msg.voiceURI = 'native';
-    //         msg.volume = 1; // 0 to 1
-    //         msg.rate = 1.0; // 0.1 to 10
-    //         msg.pitch = 1; //0 to 2
-    //         msg.text = text;
-    //         msg.lang = 'zh-TW';
-    //
-    //         msg.onerror = function(e) {
-    //             speechSynthesis.cancel();
-    //             reading = false;
-    //             clearInterval(timer);
-    //         };
-    //
-    //         msg.onpause = function(e) {
-    //             console.log('onpause in ' + e.elapsedTime + ' seconds.');
-    //         }
-    //
-    //         msg.onend = function(e) {
-    //             console.log('onend in ' + e.elapsedTime + ' seconds.');
-    //             reading = false;
-    //             clearInterval(timer);
-    //         };
-    //
-    //         speechSynthesis.onerror = function(e) {
-    //             console.log('speechSynthesis onerror in ' + e.elapsedTime + ' seconds.');
-    //             speechSynthesis.cancel();
-    //             reading = false;
-    //             clearInterval(timer);
-    //         };
-    //
-    //         speechSynthesis.speak(msg);
-    //
-    //         timer = setInterval(function(){
-    //             if (speechSynthesis.paused) {
-    //                 console.log("#continue")
-    //                 speechSynthesis.resume();
-    //             }
-    //
-    //         }, 100);
-    //
-    //         reading = true;
-    //
-    //     }
-    // }
+    let textstyle = {
+  play: {
+    hover: {
+      backgroundColor: 'black',
+      color:'white'
+    },
+    button: {
+      padding:'4',
+      fontFamily: 'Helvetica',
+      fontSize: '1.0em',
+      cursor: 'pointer',
+      pointerEvents: 'none',
+      outline: 'none',
+      backgroundColor: 'white',
+      border: 'none',
+      color: 'white'
+    },
+}}
 
-    // var myTimeout;
-    //  function myTimer() {
-    //      window.speechSynthesis.pause();
-    //      window.speechSynthesis.resume();
-    //      myTimeout = setTimeout(myTimer, 10000);
-    //  }
-    //  ...
-    //      window.speechSynthesis.cancel();
-    //      myTimeout = setTimeout(myTimer, 10000);
-    //      var toSpeak = "some text";
-    //      var utt = new SpeechSynthesisUtterance(toSpeak);
-    //      ...
-    //      utt.onend =  function() { clearTimeout(myTimeout); }
-    //      window.speechSynthesis.speak(utt);
-    //  ...
-
-     {
-
+const { letter, currentIndex } = this.state
+const image = letter.characters[currentIndex].image
+const name = letter.characters[currentIndex].name
 
     return (
 
@@ -118,36 +99,56 @@ class HeroCard extends Component {
         style={FlippyStyle}>
 
 
+
         <FrontSide>
-          <div className ="LetterFront">
-            <div className="characterImage">
-              <img src={this.state.letter.characters[0].image} />
-              <Speech
-                text={`${this.state.letter.letterChar} is for ${this.state.letter.characters[0].name}. Now let's see if you'll keep talking for the rest of the day. Oh say can you see, by the dawn's early light. What so proudly we hailed at the twilight's last gleaming. Who's broads stripes and bright stars, through the perilous fight. Oer the ramparts we watched were so gallantly streaming. And the rockets red glare! The bombs bursting in air! Gave proof through the night, that our flag was still there. Oh say does that star spangle, banner yet wave. Oer the land of the free! And the home of the brave.`}
+          <div className ="letterFront">
+            <div className ="letterBanner">
+              <p>{letter.letterChar} is for</p>
+            </div>
+            <div className="characterBanner">
+              <h2>{name}</h2>
+            </div>
+            <div className="characterFrontImage">
+              <img src={image} onClick={() => this.flippyHorizontal.toggle()}/>
+              <Speech onRef={ref => (this.speech = ref)}
+                styles={textstyle}
+                text={`${letter.letterChar} is for ${name}. Now let's see if you'll keep talking for the rest of the day. Oh say can you see, by the dawn's early light. What so proudly we hailed at the twilight's last gleaming. Who's broads stripes and bright stars, through the perilous fight. Oer the ramparts we watched were so gallantly streaming. And the rockets red glare! The bombs bursting in air! Gave proof through the night, that our flag was still there. Oh say does that star spangle, banner yet wave. Oer the land of the free! And the home of the brave.`}
                 textAsButton={true}
+                displayText={`${letter.letterChar} is for ${name}.`}
                 rate=".95"
               voice="Google UK English Female" />
             </div>
-            <button type="button" onClick={() => this.flippyHorizontal.toggle()}>Toggle Me!</button>
           </div>
         </FrontSide>
 
         <BackSide>
-          <div className ="LetterBack">
-            <div className="characterImage">
-              <img src={this.state.letter.characters[1].image} />
+          <div className ="letterBack">
+            <div className="characterBackImage">
+              <img src={image} onClick={() => this.flippyHorizontal.toggle()} />
               <Speech
-                text={`${this.state.letter.letterChar} is for ${this.state.letter.characters[1].name}.`}
+                text={`${letter.letterChar} is for ${name}.`}
                 textAsButton={true}
                 rate=".95"
               voice="Google UK English Female" />
+              <div className="characterSelector">
+                {letter.characters
+                  .map((characters, index)=>
+                    <div className="individualCharacterPicker">
+                      <HeroPickerItem
+                        key={index}
+                        index={index}
+                        handleCharacterSelection= {this.handleCharacterSelection}
+                        name={characters.name}
+                        image={characters.image}
+                      />
+                    </div>)}
+              </div>
             </div>
-            <button type="button" onClick={() => this.flippyHorizontal.toggle()}>Flip Me!</button>
           </div>
         </BackSide>
       </Flippy>
         )
-        }
+      //  }
         }
         }
 
