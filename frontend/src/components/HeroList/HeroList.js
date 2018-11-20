@@ -29,6 +29,11 @@ class HeroList extends Component {
 
 
   render() {
+    const background = "https://coolhousestyle.info/images/marvel-wallpapers-pictures-images_FILE_lLZgdJxJrZAaF2cc-LebLAHaDt.jpg"
+
+    const styleAbcWrapper={backgroundImage: `url(${background})`,
+        backgroundSize: '80%',
+        backgroundRepeat: 'repeat'}
 
 
 
@@ -37,7 +42,7 @@ class HeroList extends Component {
     if (this.state.letters.length > 0)  {
 
     return (
-      <div className="abcWrapper">
+      <div className="abcWrapper" style={styleAbcWrapper}>
         <div className="abcList">
           {this.state.letters
             .sort((a,b)=>(a.letterChar<b.letterChar) ? -1 : ((b.letterChar<a.letterChar) ? 1 : 0))

@@ -19,8 +19,8 @@ mongoose.connection.once("open", () => console.log("Connected to mongodb"))
 
 const Letter = mongoose.model ("Letter", {
   letterChar: String,
-  characters: [{type: mongoose.Schema.Types.ObjectId, ref: 'Character'}]
-  memory: [{type: mongoose.Scheme.Types.ObjectID, ref: 'Memory'}]
+  characters: [{type: mongoose.Schema.Types.ObjectId, ref: 'Character'}],
+  memories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Memory'}]
   })
 
 const Character = mongoose.model("Character", {
@@ -70,9 +70,18 @@ app.get("/letters/:letterChar", (req, res) => {
        })
      })
      .catch(function(error) {
-})
-})
-})
+      })
+    })
+  })
+
+  app.post("/characters/", (req, res) => {
+    const character = new Character(req.body)
+    character.save()
+      .then(() => {Character.findOne({name:character.name}).then((character)=> {character.id})})
+      .then(()=> {})
+      .catch(err => { res.status(400).send(err) })
+  })
+
 
 //
 // const characters = [
