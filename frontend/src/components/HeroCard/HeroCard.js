@@ -56,14 +56,14 @@ handleCharacterSelection = (index) => {
   render() {
 
     const FlippyStyle = {
-      width: '600px',
-      height: '800px',
+      width: '75vw',
+      height: '750',
       textAlign: 'center',
       color: '#FFF',
       fontFamily: 'sans-serif',
       fontSize: '30px',
       justifyContent: 'center',
-      margin: '20px'
+      padding: '3rem'
     }
 
     let textstyle = {
@@ -103,10 +103,13 @@ const name = letter.characters[currentIndex].name
         <FrontSide>
           <div className ="letterFront">
             <div className ="letterBanner">
-              <p>{letter.letterChar} is for</p>
+              <p>{letter.letterChar} IS FOR</p>
             </div>
             <div className="characterBanner">
               <h2>{name}</h2>
+            </div>
+            <div className="leftLogo">
+              <h2>{letter.letterChar}</h2>
             </div>
             <div className="characterFrontImage">
               <img src={image} onClick={() => this.flippyHorizontal.toggle()}/>
