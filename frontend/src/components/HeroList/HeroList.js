@@ -30,7 +30,6 @@ class HeroList extends Component {
 
   render() {
     const background = "https://coolhousestyle.info/images/marvel-wallpapers-pictures-images_FILE_lLZgdJxJrZAaF2cc-LebLAHaDt.jpg"
-
     const styleAbcWrapper={backgroundImage: `url(${background})`,
         backgroundSize: '15%',
         backgroundRepeat: 'repeat',
@@ -40,7 +39,7 @@ class HeroList extends Component {
 
 
 
-    console.log("LENGTH: ", this.state.letters.length)
+
     if (this.state.letters.length > 0)  {
 
     return (

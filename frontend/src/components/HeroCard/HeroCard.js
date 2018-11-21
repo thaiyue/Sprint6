@@ -56,14 +56,14 @@ handleCharacterSelection = (index) => {
   render() {
 
     const FlippyStyle = {
-      width: '75vw',
-      height: '750',
+      width: '388px',
+      height: '600px',
       textAlign: 'center',
       color: '#FFF',
       fontFamily: 'sans-serif',
       fontSize: '30px',
       justifyContent: 'center',
-      padding: '3rem'
+      paddingBottom: '3rem'
     }
 
     let textstyle = {
@@ -74,7 +74,7 @@ handleCharacterSelection = (index) => {
     },
     button: {
       padding:'4',
-      fontFamily: 'Helvetica',
+      fontFamily: 'Badoom',
       fontSize: '1.0em',
       cursor: 'pointer',
       pointerEvents: 'none',
@@ -100,7 +100,8 @@ const name = letter.characters[currentIndex].name
 
 
 
-        <FrontSide>
+        <FrontSide
+          style={{backgroundColor: '#175852' }}>
           <div className ="letterFront">
             <div className ="letterBanner">
               <p>{letter.letterChar} IS FOR</p>
@@ -124,7 +125,8 @@ const name = letter.characters[currentIndex].name
           </div>
         </FrontSide>
 
-        <BackSide>
+        <BackSide
+          style={{ height: '600px',backgroundColor: '#175852' }}>
           <div className ="letterBack">
             <div className="characterBackImage">
               <img src={image} onClick={() => this.flippyHorizontal.toggle()} />
@@ -151,7 +153,6 @@ const name = letter.characters[currentIndex].name
         </BackSide>
       </Flippy>
         )
-      //  }
         }
         }
 

@@ -10,6 +10,8 @@
   src: url('./fonts/badabb__-webfont.woff2');
 }
 
+@import url('https://fonts.googleapis.com/css?family=Bangers|Rubik+Mono+One')
+
 body {
   margin: 0;
   padding: 0;

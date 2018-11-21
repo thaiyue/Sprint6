@@ -22,3 +22,25 @@
     font-style: normal;
 
 }
+
+
+@font-face {
+    font-family: 'bangersregular';
+    src: url('bangers-regular-webfont.woff2') format('woff2'),
+         url('bangers-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'rubik_mono_oneregular';
+    src: url('rubikmonoone-regular-webfont.woff2') format('woff2'),
+         url('rubikmonoone-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

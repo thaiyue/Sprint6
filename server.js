@@ -10,9 +10,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true }))
 app.use(cors())
 
-
-const mongoServer = "mongodb://localhost/Sprint6_MarvelABC"
-mongoose.connect(mongoServer, { useMongoClient: true })
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/Sprint6_MarvelABC"
+mongoose.connect(mongoUrl, { useMongoClient: true })
 mongoose.Promise = Promise
 mongoose.connection.on("error", err => console.error("Connection error:", err))
 mongoose.connection.once("open", () => console.log("Connected to mongodb"))
@@ -244,6 +243,7 @@ app.get("/letters/:letterChar", (req, res) => {
 //   letter.save().then(() => { console.log("Created", letter.letterChar )})
 // })
 
-app.listen(8080, () =>
-  console.log("Marvel ABC listening on port 8080!")
+const port = process.env.PORT || 8080
+app.listen(port, () =>
+  console.log(`Server running on port ${port}`)
 )
