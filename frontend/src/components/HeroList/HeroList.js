@@ -4,7 +4,7 @@ import "./HeroList.scss"
 // const APIKEY = `9e51a696b1806dcbcd5554c3c5e838e4`
 // const query = `1009368`
 // const URL = `https://gateway.marvel.com:443/v1/public/characters/${query}?apikey=9e51a696b1806dcbcd5554c3c5e838e4`
-const letterURL = "http://localhost:8080/letters/"
+const letterURL = "https://comicbookfinal.herokuapp.com/letters/"
 
 class HeroList extends Component {
 
