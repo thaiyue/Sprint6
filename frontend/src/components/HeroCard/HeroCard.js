@@ -63,7 +63,8 @@ handleCharacterSelection = (index) => {
       fontFamily: 'sans-serif',
       fontSize: '30px',
       justifyContent: 'center',
-      paddingBottom: '3rem'
+      paddingBottom: '3rem',
+      backgroundColor: 'black'
     }
 
     let textstyleFront = {
@@ -101,7 +102,8 @@ handleCharacterSelection = (index) => {
         outline: 'none',
         backgroundColor: 'white',
         border: 'none',
-        color: 'white'
+        color: 'white',
+        width:'60%'
         },
       }
     }
@@ -121,8 +123,7 @@ const description = letter.characters[currentIndex].description
 
 
 
-        <FrontSide
-          style={{backgroundColor: 'black' }}>
+        <FrontSide>
           <div className ="letterFront">
             <div className ="letterBanner">
               <p>{letter.letterChar} IS FOR</p>
@@ -131,7 +132,7 @@ const description = letter.characters[currentIndex].description
               <h2>{name}</h2>
             </div>
             <div className="leftLogo">
-              <p>Nov 19</p>
+              <p>Nov 2019</p>
               <h2>{letter.letterChar}</h2>
             </div>
             <div className="characterFrontImage">
@@ -147,8 +148,7 @@ const description = letter.characters[currentIndex].description
           </div>
         </FrontSide>
 
-        <BackSide
-          style={{ backgroundColor: 'black' }}>
+        <BackSide>
           <div className ="letterBack">
             <div className="characterBanner">
               <h2>{name}</h2>
