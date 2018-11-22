@@ -19,7 +19,7 @@ class HeroPickerItem extends Component {
       return (
 
         <div className ="heroPickerRow">
-          <div className="heroImageContainer" onClick={this.handleClick} >
+          <div className="heroImageContainer" onClick={this.handleClick} style={{ cursor: 'url(shield.cur),auto' }}>
             <h3>{this.state.name}</h3>
             <img src = {this.state.image} />
           </div>

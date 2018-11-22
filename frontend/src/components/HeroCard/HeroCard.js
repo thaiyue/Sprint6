@@ -85,7 +85,7 @@ mouseLeave = () => {
         padding:'4',
         fontFamily: 'Badoom',
         fontSize: '1.0em',
-        cursor: 'pointer',
+        cursor: 'url(gauntlet.cur),auto',
         pointerEvents: 'none',
         outline: 'none',
         backgroundColor: 'white',
@@ -105,7 +105,7 @@ mouseLeave = () => {
         padding:'4',
         fontFamily: 'Badoom ',
         fontSize: '1.0em',
-        cursor: 'pointer',
+        cursor: 'url(gauntlet.cur),auto',
         pointerEvents: 'none',
         outline: 'none',
         backgroundColor: 'white',
@@ -129,7 +129,7 @@ const description = letter.characters[currentIndex].description
         ref={(r) => this.flippyHorizontal = r}
         style={FlippyStyle}>
 
-        
+
 
         <FrontSide>
           <div className ="letterFront">
@@ -143,7 +143,7 @@ const description = letter.characters[currentIndex].description
               <p>Nov 2019</p>
               <h2>{letter.letterChar}</h2>
             </div>
-            <div className="characterFrontImage">
+            <div className="characterFrontImage" style={{ cursor: 'url(shield.cur),auto' }}>
               <img src={image} onClick={() => this.flippyHorizontal.toggle()}/>
               <Speech onRef={ref => (this.speech = ref)}
                 styles={textstyleFront}
@@ -162,7 +162,7 @@ const description = letter.characters[currentIndex].description
               <h2>{name}</h2>
             </div>
             <div className="characterBackImage">
-              <img src={image} onClick={() => this.flippyHorizontal.toggle()} />
+              <img src={image} onClick={() => this.flippyHorizontal.toggle()} style={{ cursor: 'url(shield.cur),auto' }}/>
               <div className="characterDescriptionBox">
               </div>
               <Speech
