@@ -29,9 +29,9 @@ class HeroList extends Component {
 
 
   render() {
-    const background = "https://coolhousestyle.info/images/marvel-wallpapers-pictures-images_FILE_lLZgdJxJrZAaF2cc-LebLAHaDt.jpg"
+    const background = "https://www.desktopbackground.org/p/2010/09/01/73267_amazon-com-roommates-jl1175m-marvel-comic-book-covers-prepasted_1000x571_h.jpg"
     const styleAbcWrapper={backgroundImage: `url(${background})`,
-        backgroundSize: '15%',
+        backgroundSize: '25%',
         backgroundRepeat: 'repeat',
         display: 'flex'
 }

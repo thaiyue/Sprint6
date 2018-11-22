@@ -1,11 +1,6 @@
 import React, { Component } from "react"
 import "./HeroPickerItem.scss"
 
-
-
-
-
-
 class HeroPickerItem extends Component {
 
   constructor(props) {
@@ -17,12 +12,10 @@ class HeroPickerItem extends Component {
 
   handleClick = (e) =>{
     this.props.handleCharacterSelection(this.props.index)
-    // this.props.flippyHorizontal(this.props.toggle)
   }
 
     render()
     {
-  console.log(this.state)
       return (
 
         <div className ="heroPickerRow">
@@ -31,14 +24,7 @@ class HeroPickerItem extends Component {
             <img src = {this.state.image} />
           </div>
         </div>
-
-        )
-
-
-
-
-
-
+      )
     }
 }
 export default HeroPickerItem

@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik+Mono+One');
 
 .letterFront {
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
 
 }
 
@@ -46,6 +49,7 @@
 
 .characterFrontImage {
   height: 90vh;
+  width:36vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -59,6 +63,9 @@
   }
 }
 .letterBack{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
 
 }
 .characterBackImage {

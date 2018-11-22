@@ -134,29 +134,31 @@ app.get("/letters/:letterChar", (req, res) => {
 //   new Character ({name: "Valkyrie", apiId: "1010350", image:"https://i.pinimg.com/originals/cb/89/a7/cb89a73a8534d7e642b67cf83fc4cdfb.jpg", description: "Gifted the power of the legendary Asgardian Brunnhilde, Parrington assumed the mantle and the cosmic responsibilities of the Valkyrie.", gender: "Female", universe: "Asgard", alias: "Valkrie"}),
 //   new Character ({name: "Vision", apiId: "1009697", image:"http://cdn.collider.com/wp-content/uploads/the-vision-marvel.png", description: "A fully unique being, Vision came about thanks to a combination of Wakandan Vibranium, Asgardian lightning, an Infinity Stone, and more.", gender: "Male", universe: "Avengers", alias: "Vision"}),
 //   new Character ({name: "Wasp", apiId: "1009707", image:"https://i.pinimg.com/originals/78/28/0b/78280ba0d2a622a40a5e479edc1f0896.jpg", description: "From the northern wilderness of Canada hails one of the gruffest, most irascible, totally cynical and brooding member of the X-Men ever to grace the team with his presence.", gender: "Male", universe: "X-Men", alias: "James Howlett, Patch, Weapon X"}),
-//   new Character ({name: "Wolverine", apiId: "1009718", image:"https://i.pinimg.com/originals/83/10/c2/8310c27849e8490dbd7023a7de5c9616.jpg"}),
+//   new Character ({name: "Wolverine", apiId: "1009718", image:"https://i.pinimg.com/originals/78/28/0b/78280ba0d2a622a40a5e479edc1f0896.jpg"}),
 //   new Character ({name: "X-Man", apiId: "1009725", image:"https://i.pinimg.com/originals/0b/c4/d1/0bc4d1c4e0c2670df1a1d77bbe70cda1.jpg", description: "Nate Summers comes from an Apocalyptic timeline where he was one of the most powerful mutants alive. Now he fights for our universe to ensure his past doesn’t become out future.", gender: "Male", universe: "X-Men", alias: "Nate Summers"}),
-//   new Character ({name: "X-23", apiId: "1009722", image:"https://i.pinimg.com/originals/b7/07/51/b70751ae67017f1544059bad76528c4e.jpg", description: "X-23 was apparently the clone and later adopted daughter of Wolverine, created to be the perfect killing machine. For years, she proved herself a capable assassin working for an organization called the Facility. She becomes a hero in her own right after wearing the mantle of Wolverine.", gender: "Female", universe: "X-Men",alias: "Laura Kinney"}),
+//   new Character ({name: "X-23", apiId: "1009722", image:"https://i.pinimg.com/originals/78/28/0b/78280ba0d2a622a40a5e479edc1f0896.jpg", description: "X-23 was apparently the clone and later adopted daughter of Wolverine, created to be the perfect killing machine. For years, she proved herself a capable assassin working for an organization called the Facility. She becomes a hero in her own right after wearing the mantle of Wolverine.", gender: "Female", universe: "X-Men",alias: "Laura Kinney"}),
 //   new Character ({name: "Young X-Men", apiId: "1011277", image:"https://static.comicvine.com/uploads/original/0/77/646276-young_x_men_billy_tan10cov.jpg", description: "The second generation of X-men.", gender: "Male", universe: "Avengers", alias: "Not applicable" }),
 //   new Character ({name: "Yellowjacket", apiId: "1010996", image:"https://68.media.tumblr.com/f0733dff12a64fc4857ba799cf8d5b51/tumblr_oqs9gfjvQu1vra80yo1_1280.jpg", description: "The experimental nucleorganic pacemaker that saved Cross from his heart condition also granted him superhuman abilities such as enhanced physical attributes, increased sensory perception, and a regenerative healing factor.", gender: "Male", universe: "Avengers", alias: "Darren Cross"}),
-//   new Character ({name: "Zzzax", apiId: "1009742", image:"https://www.frogx3.com/wp-content/uploads/2013/07/ilustraciones-sixmorevodka-fireman.jpg", description: "The collected entity of a host of individuals who died a violent death at a nuclear power plant.", gender: "Male", universe: "Avengers", alias:"not applicable"}),
+//   new Character ({name: "Zzzax", apiId: "1009742", image:"https://i.pinimg.com/originals/78/28/0b/78280ba0d2a622a40a5e479edc1f0896.jpg", description: "The collected entity of a host of individuals who died a violent death at a nuclear power plant.", gender: "Male", universe: "Avengers", alias:"not applicable"}),
 //   new Character ({name: "Zemo", apiId: "1010780", image:"https://i.pinimg.com/originals/4c/a0/9b/4ca09be8050bb4a940fce42193d00958.jpg", description: "Baron Zemo is a hydra commander who has inherited his title from a lineage of Zemo’s bent on overthrowing America and battle Captain America.", gender: "Male", universe: "Avengers", alias: "Helmutt Zemo"})
 // ]
 //
 //
 // const charsCreators = characters.map(character => {
-//   character.save().then (() => {console.log("Created", character.name)})
+//   return character.save()
 // })
 //
 // Promise.all(charsCreators).then(() => {
 //   const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "V", "Q", "W", "X", "Y", "Z"]
 //
 //   letters.forEach(letter => {
+//     console.log("CREATING", letter)
 //     Character.find({ name: new RegExp(`^${letter}`) }).then(chars => {
+//       console.log("Found chars", letter, chars.map(c => [c.name, c._id]))
 //       const ids = chars.map(c => c._id)
 //       const l = new Letter({ letterChar: letter, characters: ids })
 //       l.save().then(() => {
-//         console.log("created letter", letter)
+//         // console.log("created letter", letter)
 //       })
 //     })
 //   })

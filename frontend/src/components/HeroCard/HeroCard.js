@@ -56,8 +56,8 @@ handleCharacterSelection = (index) => {
   render() {
 
     const FlippyStyle = {
-      width: '388px',
-      height: '600px',
+      width: '41vw',
+      height: '100vh',
       textAlign: 'center',
       color: '#FFF',
       fontFamily: 'sans-serif',
@@ -67,23 +67,24 @@ handleCharacterSelection = (index) => {
     }
 
     let textstyle = {
-  play: {
-    hover: {
-      backgroundColor: 'black',
-      color:'white'
-    },
-    button: {
-      padding:'4',
-      fontFamily: 'Badoom',
-      fontSize: '1.0em',
-      cursor: 'pointer',
-      pointerEvents: 'none',
-      outline: 'none',
-      backgroundColor: 'white',
-      border: 'none',
-      color: 'white'
-    },
-}}
+        play: {
+        hover: {
+        backgroundColor: 'black',
+        color:'white'
+        },
+      button: {
+        padding:'4',
+        fontFamily: 'Badoom',
+        fontSize: '1.0em',
+        cursor: 'pointer',
+        pointerEvents: 'none',
+        outline: 'none',
+        backgroundColor: 'white',
+        border: 'none',
+        color: 'white'
+        },
+      }
+    }
 
 const { letter, currentIndex } = this.state
 const image = letter.characters[currentIndex].image
@@ -101,7 +102,7 @@ const name = letter.characters[currentIndex].name
 
 
         <FrontSide
-          style={{backgroundColor: '#175852' }}>
+          style={{backgroundColor: 'black' }}>
           <div className ="letterFront">
             <div className ="letterBanner">
               <p>{letter.letterChar} IS FOR</p>
@@ -126,7 +127,7 @@ const name = letter.characters[currentIndex].name
         </FrontSide>
 
         <BackSide
-          style={{ height: '600px',backgroundColor: '#175852' }}>
+          style={{ backgroundColor: 'black' }}>
           <div className ="letterBack">
             <div className="characterBackImage">
               <img src={image} onClick={() => this.flippyHorizontal.toggle()} />
