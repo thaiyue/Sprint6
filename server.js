@@ -51,7 +51,7 @@ app.get("/", (req, res) => {
 
 
 app.get("/letters/", (req, res) => {
-  Letter.find().populate("characters").then(letters => {
+  Letter.find().populate("characters").sort("letterChar").then(letters => {
       res.json(
         letters
       )
