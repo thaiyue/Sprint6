@@ -66,7 +66,7 @@ handleCharacterSelection = (index) => {
       paddingBottom: '3rem'
     }
 
-    let textstyle = {
+    let textstyleFront = {
         play: {
         hover: {
         backgroundColor: 'black',
@@ -86,10 +86,30 @@ handleCharacterSelection = (index) => {
       }
     }
 
+    let textstyleBack = {
+        play: {
+        hover: {
+        backgroundColor: 'black',
+        color:'white'
+        },
+      button: {
+        padding:'4',
+        fontFamily: 'Badoom ',
+        fontSize: '1.0em',
+        cursor: 'pointer',
+        pointerEvents: 'none',
+        outline: 'none',
+        backgroundColor: 'white',
+        border: 'none',
+        color: 'white'
+        },
+      }
+    }
+
 const { letter, currentIndex } = this.state
 const image = letter.characters[currentIndex].image
 const name = letter.characters[currentIndex].name
-
+const description = letter.characters[currentIndex].description
     return (
 
       <Flippy
@@ -111,13 +131,14 @@ const name = letter.characters[currentIndex].name
               <h2>{name}</h2>
             </div>
             <div className="leftLogo">
+              <p>Nov 19</p>
               <h2>{letter.letterChar}</h2>
             </div>
             <div className="characterFrontImage">
               <img src={image} onClick={() => this.flippyHorizontal.toggle()}/>
               <Speech onRef={ref => (this.speech = ref)}
-                styles={textstyle}
-                text={`${letter.letterChar} is for ${name}. Now let's see if you'll keep talking for the rest of the day. Oh say can you see, by the dawn's early light. What so proudly we hailed at the twilight's last gleaming. Who's broads stripes and bright stars, through the perilous fight. Oer the ramparts we watched were so gallantly streaming. And the rockets red glare! The bombs bursting in air! Gave proof through the night, that our flag was still there. Oh say does that star spangle, banner yet wave. Oer the land of the free! And the home of the brave.`}
+                styles={textstyleFront}
+                text={`${letter.letterChar} is for ${name}.`}
                 textAsButton={true}
                 displayText={`${letter.letterChar} is for ${name}.`}
                 rate=".95"
@@ -129,10 +150,16 @@ const name = letter.characters[currentIndex].name
         <BackSide
           style={{ backgroundColor: 'black' }}>
           <div className ="letterBack">
+            <div className="characterBanner">
+              <h2>{name}</h2>
+            </div>
             <div className="characterBackImage">
               <img src={image} onClick={() => this.flippyHorizontal.toggle()} />
+              <div className="characterDescriptionBox">
+              </div>
               <Speech
-                text={`${letter.letterChar} is for ${name}.`}
+                text={`${description}.`}
+                styles={textstyleBack}
                 textAsButton={true}
                 rate=".95"
               voice="Google UK English Female" />

@@ -15,7 +15,7 @@
   font-family: 'Rubik Mono One';
   font-weight: bold;
   letter-spacing: .1rem;
-  left: 6.5rem;
+  left: 7.5rem;
   top: 0;
   -webkit-text-stroke-width: .5px;
   -webkit-text-stroke-color: black;
@@ -36,15 +36,25 @@
 }
 
 .leftLogo {
-  font-size: 40px;
-  font-family: "Badoom";
   z-index:10;
   width: 4.5rem;
   height:8rem;
-  background-color: purple;
+  background-color: #990000;
   position: absolute;
   top: 1.8rem;
-  left: 1.89rem
+  left: 1.89rem;
+  border-style: solid;
+  border-color: white;
+  h2 {
+    font-size: 60px;
+    font-family: "Badoom";
+    margin:0;
+  }
+  p{
+    font-size:15px;
+    font-family: 'Rubik Mono One';
+    margin:5px;
+  }
 }
 
 .characterFrontImage {
@@ -65,21 +75,27 @@
 .letterBack{
   display:flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
 
 }
 .characterBackImage {
   height: 50vh;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  font-size: 1rem;
   img {
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     height:100%;
+
   }
+}
+
+.characterDescriptionBox {
+  height: 5rem;
 }
 .characterSelector {
   display: flex;
