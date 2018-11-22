@@ -13,7 +13,8 @@ class HeroCard extends Component {
        ...props,
        currentIndex: 0,
        pause: false,
-       resume: false
+       resume: false,
+       isMouseInside: false
       }
   }
 
@@ -52,6 +53,13 @@ handleCharacterSelection = (index) => {
   this.flippyHorizontal.toggle()
 }
 
+mouseEnter = () => {
+  this.setState({ isMouseInside: true });
+}
+
+mouseLeave = () => {
+  this.setState({ isMouseInside: false });
+}
 
   render() {
 
@@ -121,7 +129,7 @@ const description = letter.characters[currentIndex].description
         ref={(r) => this.flippyHorizontal = r}
         style={FlippyStyle}>
 
-
+        
 
         <FrontSide>
           <div className ="letterFront">
