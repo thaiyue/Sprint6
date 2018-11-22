@@ -7,7 +7,8 @@ const letterURL = "https://comicbookfinal.herokuapp.com/letters/"
 class HeroList extends Component {
 
   state ={
-    letters: []
+    letters: [],
+    // hasCapture: true
   }
 
   getCharacters = () => {
@@ -24,6 +25,13 @@ class HeroList extends Component {
     this.getCharacters()
   }
 
+  // onEnter= (e) => {
+  //   this.setState({hasCapture:true})
+  // }
+  //
+  // onLeave= (e) => {
+  //   this.setState({hasCapture:false})
+  // }
 
 
   render() {
@@ -32,18 +40,26 @@ class HeroList extends Component {
         backgroundSize: '25%',
         backgroundRepeat: 'repeat',
         display: 'flex'
-}
+      }
 
-
-
+    const {hasCapture} = this.state;
+    const styles= {
+      width: '80px',
+      height: '80px',
+      borderRadius: '999999px',
+      backgroundColor: hasCapture ? 'pink' : 'yellow',
+      }
 
 
     if (this.state.letters.length > 0)  {
 
     return (
       <div className = "stansContainer">
-
-        <div className = "stansBox">
+        <div className = "stansBox"
+          // onPointerEnter={this.onEnter}
+          // onPointerLeave={this.onLeave}
+          // style={styles}
+          >
           <img src ="stanLee.png" />
         </div>
           <div className="abcWrapper" style={styleAbcWrapper}>
