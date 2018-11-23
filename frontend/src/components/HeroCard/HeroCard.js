@@ -166,7 +166,7 @@ const description = letter.characters[currentIndex].description
               <div className="characterDescriptionBox">
               </div>
               <Speech
-                text={`${description}.`}
+                text={`${description}`}
                 styles={textstyleBack}
                 textAsButton={true}
                 rate=".95"
